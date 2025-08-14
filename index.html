@@ -61,8 +61,25 @@ body {
   color: #000;
 }
 @media (max-width: 680px){
-  .top-nav { flex-direction: column; top: 8px; right: 8px; gap: 8px; }
+  .top-nav { 
+    flex-direction: column; 
+    top: 8px; 
+    right: 8px; 
+    gap: 8px; 
+    background: rgba(0,0,0,0.85); /* Dark background for menu container */
+    padding: 8px;
+    border-radius: 8px;
+  }
+  .top-nav a {
+    background: rgba(255,255,255,0.1); /* Same old semi-transparent white */
+    color: #fff; /* Keep white text */
+  }
+  body {
+    padding-top: 160px; /* Push content down so menu doesn’t overlap */
+  }
 }
+
+
 
 /* Header */
 .welcome-container {
