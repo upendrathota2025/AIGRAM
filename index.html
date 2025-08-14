@@ -66,16 +66,24 @@ body {
     top: 8px; 
     right: 8px; 
     gap: 8px; 
-    background: rgba(0,0,0,0.85); /* Dark background for menu container */
+    background: rgba(24, 16, 36, 0.95); /* Deep purple background */
     padding: 8px;
     border-radius: 8px;
+    box-shadow: 0 0 15px rgba(142, 45, 226, 0.4); /* Soft purple glow */
   }
   .top-nav a {
-    background: rgba(255,255,255,0.1); /* Same old semi-transparent white */
-    color: #fff; /* Keep white text */
+    background: linear-gradient(135deg, #8e2de2, #ff6a00); /* Purple → Orange */
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  }
+  .top-nav a:hover {
+    background: linear-gradient(135deg, #ff6a00, #8e2de2); /* Reverse gradient on hover */
+    box-shadow: 0 0 10px rgba(255, 106, 0, 0.5); /* Orange glow */
+    transform: translateY(-2px);
   }
   body {
-    padding-top: 160px; /* Push content down so menu doesn’t overlap */
+    padding-top: 160px; /* Prevent overlap with fixed menu */
   }
 }
 
