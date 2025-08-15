@@ -37,55 +37,70 @@ body {
 .ai-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/99/Robot-icon.svg'); background-repeat: repeat; background-size: clamp(120px, 20vw, 200px); opacity: 0.04; animation: floatBg 60s linear infinite; }
 @keyframes floatBg { from{background-position:0 0} to{background-position:1000px 1000px} }
 
-/* Top navigation */
+/* Top navigation - desktop */
 .top-nav {
   position: fixed;
-  top: 16px;
-  right: 16px;
+  top: 12px; /* slightly closer to top */
+  right: 12px;
   z-index: 10;
   display: flex;
-  gap: 12px;
+  gap: 8px; /* less gap between buttons */
   font-family: inherit;
 }
 .top-nav a {
   text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  background: rgba(255,255,255,0.1);
+  padding: 6px 10px; /* smaller button size */
+  font-size: 0.85rem; /* smaller text */
+  border-radius: 5px;
+  background: linear-gradient(135deg, #8e2de2, #ff6a00);
   color: #fff;
   font-weight: 600;
-  transition: background 0.3s, color 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 .top-nav a:hover {
-  background: var(--accent-2);
-  color: #000;
+  background: linear-gradient(135deg, #ff6a00, #8e2de2);
+  box-shadow: 0 0 8px rgba(255, 106, 0, 0.5);
+  transform: translateY(-2px);
 }
+
+
 @media (max-width: 680px){
   .top-nav { 
-    flex-direction: column; 
-    top: 8px; 
-    right: 8px; 
-    gap: 8px; 
-    background: rgba(24, 16, 36, 0.95); /* Deep purple background */
-    padding: 8px;
+    position: relative; /* no overlap */
+    display: flex;
+    flex-direction: row; /* keep horizontal */
+    flex-wrap: nowrap; /* single row */
+    overflow-x: auto; /* scroll if needed */
+    gap: 6px;
+    margin: 8px auto;
+    padding: 6px;
+    background: rgba(24, 16, 36, 0.95);
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(142, 45, 226, 0.4); /* Soft purple glow */
+    box-shadow: 0 0 15px rgba(142, 45, 226, 0.4);
+  }
+  .top-nav::-webkit-scrollbar {
+    display: none; /* hide scrollbar for cleaner look */
   }
   .top-nav a {
-    background: linear-gradient(135deg, #8e2de2, #ff6a00); /* Purple → Orange */
+    padding: 6px 10px; /* smaller buttons */
+    font-size: 0.85rem; /* reduce text size */
+    white-space: nowrap;
+    background: linear-gradient(135deg, #8e2de2, #ff6a00);
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.15);
     transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
   }
   .top-nav a:hover {
-    background: linear-gradient(135deg, #ff6a00, #8e2de2); /* Reverse gradient on hover */
-    box-shadow: 0 0 10px rgba(255, 106, 0, 0.5); /* Orange glow */
+    background: linear-gradient(135deg, #ff6a00, #8e2de2);
+    box-shadow: 0 0 10px rgba(255, 106, 0, 0.5);
     transform: translateY(-2px);
   }
   body {
-    padding-top: 160px; /* Prevent overlap with fixed menu */
+    padding-top: 0; /* no forced padding */
   }
 }
+
 
 
 /* Header */
