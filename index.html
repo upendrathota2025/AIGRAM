@@ -67,36 +67,31 @@ body {
 
 @media (max-width: 680px) {
   .top-nav { 
-    position: relative;
+    position: fixed;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow-x: auto;
+    justify-content: space-between;
     gap: 4px;
-    margin: 8px auto;
-    padding: 4px;
+    margin: 0;
+    padding: 2px 6px; /* space inside nav */
     background: rgba(24, 16, 36, 0.95);
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(142, 45, 226, 0.4);
-  }
-  .top-nav::-webkit-scrollbar {
-    display: none;
+    width: 90%; /* smaller than full width to leave margin */
   }
   .top-nav a {
-    padding: clamp(4px, 1.5vw, 6px) clamp(6px, 2.5vw, 10px);
-    font-size: clamp(0.65rem, 2vw, 0.85rem); /* auto scale */
-    white-space: nowrap;
-    background: linear-gradient(135deg, #8e2de2, #ff6a00);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.15);
-    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-  }
-  .top-nav a:hover {
-    background: linear-gradient(135deg, #ff6a00, #8e2de2);
-    box-shadow: 0 0 10px rgba(255, 106, 0, 0.5);
-    transform: translateY(-2px);
+    flex: 1 1 auto;
+    padding: 4px 6px;
+    font-size: 0.7rem;
+    text-align: center;
   }
 }
+
 
 
 
