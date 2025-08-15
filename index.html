@@ -273,8 +273,16 @@ button{
     <form class="contact" id="meetForm">
       <input id="emails" type="email" placeholder="Invitee email(s), comma-separated" multiple required aria-label="Invitee emails" />
       <div class="row">
-        <input id="date" type="date" required aria-label="Meeting date" />
-        <input id="time" type="time" required aria-label="Meeting time" />
+        <!-- Date with placeholder -->
+      <input id="date" type="text" placeholder="mm/dd/yyyy" required aria-label="Meeting date"
+             onfocus="this.type='date'; this.showPicker && this.showPicker();" 
+             onblur="if(!this.value) this.type='text';" />
+
+      <!-- Time with placeholder -->
+      <input id="time" type="text" placeholder="--:--" required aria-label="Meeting time"
+             onfocus="this.type='time'; this.showPicker && this.showPicker();" 
+             onblur="if(!this.value) this.type='text';" />
+
       </div>
       <div class="row">
         <select id="duration" aria-label="Duration">
