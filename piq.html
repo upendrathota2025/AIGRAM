@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PiQ - Online Image Resizer, Compressor, Crop & Grayscale Tool</title>
+<meta name="description" content="PiQ Image Renderer lets you resize, crop, compress, and convert images to grayscale instantly. Upload any image format and get high-quality results. Perfect for single images or bulk processing.">
+<meta name="keywords" content="resize image, compress image, crop image, grayscale image, free image tool, online image converter, image optimization, image resizer, PiQ, AigramTech">
+<meta name="robots" content="index, follow">
+<meta name="author" content="AigramTech">
+<meta name="copyright" content="Aigram Technologies Pvt. Ltd.">
+<meta name="owner" content="Aigram Technologies Pvt. Ltd.">
+
+<link rel="canonical" href="https://aigramtech.com/piq.html">
+
+
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<!-- Global + page-specific CSS -->
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/piq.css">
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html">Home</a>
+
+  <div class="dropdown">
+    <a href="#products" class="dropbtn">Products</a>
+    <div class="dropdown-content">
+      <a href="piq.html">PiQ</a>
+      <a href="virtualfit.html">VirtualFit</a>
+      <a href="promptly.html">Promptly</a>
+      <a href="profilepro.html">ProfilePro</a>
+      <a href="pdflab.html">PDFLab</a>
+    </div>
+  </div>
+
+  <a href="index.html#about">Founders</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+
+<!-- Background effects -->
+<div class="stars" id="stars"></div>
+<div class="ai-bg" aria-hidden="true"></div>
+
+
+<main>
+  <section>
+    <h1 class="page-title">PiQ – Image Renderer</h1>
+
+    <form>
+      <div class="form-group">
+        <label for="imageUpload">Upload an Image:</label>
+        <input type="file" id="imageUpload" accept="image/*">
+      </div>
+
+      <div class="form-group">
+        <label for="action">Choose Action:</label>
+        <select id="action">
+          <option value="resize">Resize</option>
+          <option value="crop">Crop</option>
+          <option value="grayscale">Grayscale</option>
+          <option value="compress">Compress</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="extraInputs"></div>
+
+      <button type="button" id="renderBtn">Render Image</button>
+    </form>
+
+    <!-- Image preview -->
+    <div class="image-preview">
+      <div class="image-box">
+        <p>Uploaded Image</p>
+        <img id="uploadedImg" src="images/dummy-image.png" alt="Uploaded image preview">
+        <br>
+        <button type="button" id="resetBtn" style="margin-top:10px;">Reset</button>
+      </div>
+
+      <div class="image-box">
+        <p>Rendered Image</p>
+        <img id="renderedImg" 
+             src="images/dummy-image.png" 
+             alt="Rendered output preview">
+        <br>
+        <button type="button" id="downloadBtn" style="margin-top:10px;">Download</button>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<button type="button" id="bulkBtn" style="margin-top:20px;">Bulk Requests</button>
+
+<!-- Hidden bulk form -->
+<div id="bulkFormContainer" style="display:none; margin-top:20px; background:rgba(0,0,0,0.6); padding:20px; border-radius:10px;">
+  <h2 style="color:var(--accent-2);">Bulk Image Processing Request</h2>
+  <form id="bulkForm">
+    <label>TPS (Transactions per second):</label>
+    <input type="number" id="tps" required>
+
+    <label>Use Case:</label>
+    <textarea id="usecase" rows="3" required></textarea>
+
+    <label>Email ID:</label>
+    <input type="email" id="email" required>
+
+    <label>Company / Organization:</label>
+    <input type="text" id="company" required>
+
+    <label>Expected Monthly Volume (images):</label>
+    <input type="number" id="volume">
+
+    <button type="submit">Submit Request</button>
+  </form>
+</div>
+
+
+<!-- Scripts -->
+<script src="js/home.js"></script> <!-- global -->
+<script src="js/piq.js"></script>   <!-- page-specific -->
+</body>
+<footer style="text-align:center; margin-top:40px; padding:15px; font-size:0.8rem; color:#aaa;">
+  © 2023 Aigram Technologies Pvt. Ltd. All rights reserved.
+</footer>
+
+</html>

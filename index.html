@@ -3,234 +3,40 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>AigramTech – AI Innovation & Solutions</title>
+<title>AigramTech - AI Innovation & Solutions</title>
 <link rel="icon" type="image/png" href="images/favicon.png">
-<meta name="description" content="AigramTech is where AI meets innovation — delivering AI solutions, proofs of concept, and custom models for startups and businesses worldwide.">
-<meta name="keywords" content="AigramTech, AI solutions, Artificial Intelligence, AI startup, AI models, Aigram">
+<meta name="description" content="AigramTech is where AI meets innovation - delivering AI solutions, proofs of concept, and custom models for startups and businesses worldwide.">
+<meta name="keywords" content="AigramTech, AI solutions, Artificial Intelligence, AI startup, AI models, Aigram, resize image, compress image, crop image, grayscale image, free image tool, online image converter, image optimization, image resizer, PiQ, pocs, production grade">
+<meta name="copyright" content="Aigram Technologies Pvt. Ltd.">
+<meta name="owner" content="Aigram Technologies Pvt. Ltd.">
 
-<style>
-:root{
-  --accent-1:#ff4d4d;
-  --accent-2:#ffcc00;
-  --accent-3:#00d4ff;
-  --accent-4:#0066ff;
-  --card-bg:rgba(0,0,0,0.45);
-}
+<link rel="stylesheet" href="css/home.css">
 
-/* Base */
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(ellipse at center, #1a0f0f, #000000);
-  color: #fff;
-  font-family: system-ui, ui-monospace, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  scroll-behavior: smooth;
-}
-
-/* Background layers */
-.stars { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-.star { position: absolute; background: #fff; border-radius: 50%; opacity: 0; animation: blink 2s infinite; }
-@keyframes blink { 0%,100%{opacity:0} 50%{opacity:1} }
-.ai-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/99/Robot-icon.svg'); background-repeat: repeat; background-size: clamp(120px, 20vw, 200px); opacity: 0.04; animation: floatBg 60s linear infinite; }
-@keyframes floatBg { from{background-position:0 0} to{background-position:1000px 1000px} }
-
-/* Top navigation - desktop */
-.top-nav {
-  position: fixed;
-  top: 12px; /* slightly closer to top */
-  right: 12px;
-  z-index: 10;
-  display: flex;
-  gap: 8px; /* less gap between buttons */
-  font-family: inherit;
-}
-.top-nav a {
-  text-decoration: none;
-  padding: 6px 10px; /* smaller button size */
-  font-size: 0.85rem; /* smaller text */
-  border-radius: 5px;
-  background: linear-gradient(135deg, #8e2de2, #ff6a00);
-  color: #fff;
-  font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-}
-.top-nav a:hover {
-  background: linear-gradient(135deg, #ff6a00, #8e2de2);
-  box-shadow: 0 0 8px rgba(255, 106, 0, 0.5);
-  transform: translateY(-2px);
-}
-
-
-@media (max-width: 680px) {
-  .top-nav { 
-    position: fixed;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 4px;
-    margin: 0;
-    padding: 2px 6px; /* space inside nav */
-    background: rgba(24, 16, 36, 0.95);
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(142, 45, 226, 0.4);
-    width: 90%; /* smaller than full width to leave margin */
-  }
-  .top-nav a {
-    flex: 1 1 auto;
-    padding: 4px 6px;
-    font-size: 0.7rem;
-    text-align: center;
-  }
-}
-
-
-
-
-
-/* Header */
-.welcome-container {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 700;
-  margin: clamp(40px, 8vh, 80px) 16px 8px;
-  display: inline-flex;
-  align-items: baseline;
-  gap: .35em;
-  white-space: nowrap;
-  min-height: 4rem;
-}
-.welcome-to {
-  display: inline-block;
-  opacity: 0;
-  transform: translateX(-30px);
-  animation: slideIn 1s forwards;
-}
-@keyframes slideIn { to{opacity:1; transform: translateX(0)} }
-
-/* Fixed slot for AIGRAM */
-.aigram-slot {
-  display: inline-block;
-  vertical-align: bottom;
-  text-align: left;
-  line-height: 1;
-  height: auto;
-}
-.aigram {
-  display: inline-block;
-  font-weight: 900;
-  background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-4));
-  background-size: 100% 100%;
-  -webkit-background-clip: text;
-  color: transparent;
-  opacity: 0;
-  transition: opacity .6s ease;
-  line-height: 1;
-}
-
-/* Stealth line */
-#text {
-  position: relative;
-  z-index: 2;
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: clamp(1rem, 2.6vw, 1.5rem);
-  margin: 6px 16px 24px;
-  min-height: 1.5em;
-}
-.cursor { border-right: 2px solid #fff; animation: blink-caret .6s step-end infinite; }
-@keyframes blink-caret { from,to{border-color:transparent} 50%{border-color:#fff} }
-.fade-out { opacity: 0; transition: opacity .4s ease; }
-
-/* Sections */
-main{
-  position: relative;
-  z-index: 2;
-  width: min(100%, 1100px);
-  padding: 0 16px 80px;
-}
-section{
-  background: var(--card-bg);
-  border-radius: 14px;
-  box-shadow: 0 0 15px rgba(255,255,255,0.08);
-  padding: clamp(16px, 3vw, 28px);
-  margin: 18px 0;
-}
-h2{
-  margin: 0 0 10px;
-  font-size: clamp(1.25rem, 3.8vw, 2rem);
-  color: var(--accent-2);
-}
-p{ margin: 8px 0; line-height: 1.6; font-size: clamp(.95rem, 2.6vw, 1.05rem); }
-
-/* Contact / form */
-.contact{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-.row{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-input, select, button{
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.06);
-  color: #fff;
-}
-input::placeholder{ color: rgba(255,255,255,0.6); }
-button{
-  border: none;
-  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
-  color: #000;
-  font-weight: 700;
-  cursor: pointer;
-}
-.actions{
-  display: flex; gap: 10px; flex-wrap: wrap;
-}
-.actions a{
-  display:inline-block; padding: 12px 14px; border-radius: 8px;
-  background: rgba(255,255,255,0.1); color:#fff; text-decoration: none;
-}
-
-/* Footer note */
-.footnote{ opacity: .7; font-size: .9rem; margin-top: 6px; }
-
-@media (max-width: 680px){
-  .row{ grid-template-columns: 1fr; }
-}
-@media (prefers-reduced-motion: reduce){
-  .star, .ai-bg, .cursor { animation: none !important; }
-}
-</style>
 </head>
 <body>
 
 <!-- Top navigation -->
+<!-- Top navigation -->
 <div class="top-nav">
   <a href="#about">Tryit</a>
-  <a href="#about">Demo</a>
-  <a href="#about">Products</a>
+  <a href="#about">Blogs</a>
+
+  <div class="dropdown">
+  <a href="#products" class="dropbtn">Products</a>
+  <div class="dropdown-content">
+    <a href="piq.html">PiQ</a>
+    <a href="virtualfit.html">VirtualFit</a>
+    <a href="promptly.html">Promptly</a>
+    <a href="profilepro.html">ProfilePro</a>
+    <a href="pdflab.html">PDFLab</a>
+  </div>
+</div>
+
+
   <a href="#about">Founders</a>
   <a href="#contact">Contact</a>
 </div>
+
 
 <div class="stars" id="stars"></div>
 <div class="ai-bg" aria-hidden="true"></div>
@@ -247,25 +53,19 @@ button{
 <main>
   <section id="about">
     <h2>About Aigram</h2>
-    <p><strong>Aigram is where AI meets innovation</strong> — a village of intelligence built to break bottlenecks.</p>
-    <p>At its core, Aigram is a hub of AI expertise designed to empower businesses — especially startups and small companies — by providing cutting-edge solutions, Proof of Concepts (PoCs), and custom-built AI models tailored to their unique needs. It’s not just another AI service provider; it’s an enabler, a partner, and a problem-solver.</p>
-    <p>The name fuses <em>AI</em> and <em>Gram</em> (ग्राम / గ్రామం — “village”), symbolizing a community-driven approach where knowledge, collaboration, and innovation thrive together. Just as a village nurtures growth, Aigram fosters AI-driven transformations, making advanced technology accessible and impactful for all.</p>
-    <p>Whether it’s solving complex AI challenges, optimizing business operations, or pioneering industry-specific applications, Aigram stands as the go-to AI village — a digital powerhouse where intelligence is cultivated and shared.</p>
+    <p><strong>Aigram is where AI meets innovation</strong> - a village of intelligence built to break bottlenecks.</p>
+    <p>At its core, Aigram is a hub of AI expertise designed to empower businesses - especially startups and small companies - by providing cutting-edge solutions, Proof of Concepts (PoCs), and custom-built AI models tailored to their unique needs. It’s not just another AI service provider; it’s an enabler, a partner, and a problem-solver.</p>
+    <p>The name fuses <em>AI</em> and <em>Gram</em> (ग्राम / గ్రామం - “village”), symbolizing a community-driven approach where knowledge, collaboration, and innovation thrive together. Just as a village nurtures growth, Aigram fosters AI-driven transformations, making advanced technology accessible and impactful for all.</p>
+    <p>Whether it’s solving complex AI challenges, optimizing business operations, or pioneering industry-specific applications, Aigram stands as the go-to AI village - a digital powerhouse where intelligence is cultivated and shared.</p>
   </section>
 
   <section id="team">
     <h2>Our Team</h2>
-    <p>Built by senior scientists from FAANG and alumni of IITs, united by a mission to deliver pragmatic, production-grade AI.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:nathias@aigram.in" style="color:var(--accent-2)">nathias@aigram.in</a></p>
-    <p>Address: Bellevue, Washington</p>
+    <p>Built by Leaders and senior scientists from FAANG and alumni of IITs, united by a mission to deliver pragmatic, production-grade AI.</p>
   </section>
 
   <section id="schedule">
-    <h2>Schedule a Meeting with the Founders</h2>
+    <h2>Schedule a Meeting</h2>
     <form class="contact" id="meetForm">
       <input id="emails" type="email" placeholder="Invitee email(s), comma-separated" multiple required aria-label="Invitee emails" />
       <div class="row">
@@ -295,130 +95,18 @@ button{
       <div class="footnote">We’ll generate a downloadable .ics file and also open Google Calendar pre-filled with your details.</div>
     </form>
   </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:founders@aigramtech.com" style="color:var(--accent-2)">founders@aigramtech.com</a></p>
+    <p>Address: Bellevue, Washington</p>
+  </section>
+
 </main>
 
-<script>
-const starsContainer = document.getElementById('stars');
-for(let i=0;i<100;i++){
-  const star = document.createElement('div');
-  const size = (Math.random()*2+1)+'px';
-  star.classList.add('star');
-  star.style.width=size;
-  star.style.height=size;
-  star.style.top=Math.random()*100+'%';
-  star.style.left=Math.random()*100+'%';
-  star.style.animationDelay=(Math.random()*3)+'s';
-  starsContainer.appendChild(star);
-}
-
-const names = ["𝐀𝐈𝐆𝐑𝐀𝐌","ఎఐగ్రామ్","ＡＩグラム","एआईग्राम"];
-const aigramEl=document.getElementById('aigramText');
-const slotEl=aigramEl.parentElement;
-
-function lockSlotSize(){
-  const measure=document.createElement('span');
-  measure.style.visibility='hidden';
-  measure.style.position='absolute';
-  measure.style.whiteSpace='nowrap';
-  measure.style.fontWeight=getComputedStyle(aigramEl).fontWeight;
-  measure.style.fontSize=getComputedStyle(aigramEl).fontSize;
-  measure.style.fontFamily=getComputedStyle(aigramEl).fontFamily;
-  measure.style.letterSpacing=getComputedStyle(aigramEl).letterSpacing;
-  document.body.appendChild(measure);
-  let maxWidth=0,maxHeight=0;
-  for(const n of names){
-    measure.textContent=n;
-    const rect=measure.getBoundingClientRect();
-    maxWidth=Math.max(maxWidth,rect.width);
-    maxHeight=Math.max(maxHeight,rect.height);
-  }
-  document.body.removeChild(measure);
-  slotEl.style.width=Math.ceil(maxWidth)+8+'px';
-  slotEl.style.height=Math.ceil(maxHeight)+'px';
-  document.querySelector('.welcome-container').style.minHeight=Math.ceil(maxHeight)+'px';
-}
-lockSlotSize();
-window.addEventListener('resize',lockSlotSize);
-
-aigramEl.style.opacity=1;
-let idx=1;
-setInterval(()=>{
-  aigramEl.style.opacity=0;
-  setTimeout(()=>{
-    aigramEl.textContent=names[idx];
-    aigramEl.style.opacity=1;
-    idx=(idx+1)%names.length;
-  },450);
-},2000);
-
-const message="We are in Stealth Mode ...";
-const textElement=document.getElementById('text');
-function typeMessage(){
-  textElement.innerHTML="";
-  textElement.classList.add('cursor');
-  let index=0;
-  (function typeStep(){
-    if(index<message.length){
-      const span=document.createElement('span');
-      span.textContent=message[index];
-      textElement.appendChild(span);
-      index++;
-      setTimeout(typeStep,100);
-    }else{
-      textElement.classList.remove('cursor');
-      setTimeout(startDisappear,500);
-    }
-  })();
-}
-function startDisappear(){
-  const spans=Array.from(textElement.querySelectorAll("span"));
-  let visibleIndices=spans.map((_,i)=>i);
-  (function fadeStep(){
-    if(visibleIndices.length===0){ setTimeout(typeMessage,800); return; }
-    const picks=[];
-    for(let i=0;i<2&&visibleIndices.length>0;i++){
-      const ri=Math.floor(Math.random()*visibleIndices.length);
-      picks.push(visibleIndices[ri]);
-      visibleIndices.splice(ri,1);
-    }
-    picks.forEach(i=>spans[i].classList.add("fade-out"));
-    setTimeout(fadeStep,200);
-  })();
-}
-setTimeout(typeMessage,500);
-
-// Meeting form
-const form=document.getElementById('meetForm');
-const gcalLink=document.getElementById('gcalLink');
-function toTwo(n){ return n.toString().padStart(2,'0'); }
-function toICSDate(d){
-  return d.getUTCFullYear()+toTwo(d.getUTCMonth()+1)+toTwo(d.getUTCDate())+'T'+toTwo(d.getUTCHours())+toTwo(d.getUTCMinutes())+toTwo(d.getUTCSeconds())+'Z';
-}
-form.addEventListener('submit',(e)=>{
-  e.preventDefault();
-  const emailsRaw=document.getElementById('emails').value.trim();
-  const date=document.getElementById('date').value;
-  const time=document.getElementById('time').value;
-  const duration=parseInt(document.getElementById('duration').value,10)||60;
-  const title=(document.getElementById('title').value||'Meeting with Aigram Founders').trim();
-  if(!date||!time){ alert('Please pick date & time'); return; }
-  const startLocal=new Date(`${date}T${time}`);
-  const endLocal=new Date(startLocal.getTime()+duration*60000);
-  const attendees=emailsRaw.split(',').map(s=>s.trim()).filter(Boolean);
-  const icsLines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//aigram.in//Meeting//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT',`UID:${Date.now()}@aigram.in`,`DTSTAMP:${toICSDate(new Date())}`,`DTSTART:${toICSDate(startLocal)}`,`DTEND:${toICSDate(endLocal)}`,`SUMMARY:${title}`,'LOCATION:Bellevue, Washington','DESCRIPTION:Schedule via aigram.in — contact nathias@aigram.in'];
-  attendees.forEach(a=>icsLines.push(`ATTENDEE;CN=${a};ROLE=REQ-PARTICIPANT:MAILTO:${a}`));
-  icsLines.push('END:VEVENT','END:VCALENDAR');
-  const icsBlob=new Blob([icsLines.join('\r\n')],{type:'text/calendar;charset=utf-8'});
-  const url=URL.createObjectURL(icsBlob);
-  const a=document.createElement('a');
-  a.href=url; a.download='Aigram-Meeting.ics'; document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(()=>URL.revokeObjectURL(url),2000);
-  const dates=`${toICSDate(startLocal)}/${toICSDate(endLocal)}`;
-  const details=encodeURIComponent('Scheduled via aigram.in — contact nathias@aigram.in');
-  const addGuests=attendees.map(e=>`&add=${encodeURIComponent(e)}`).join('');
-  const gcal=`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${dates}&details=${details}&location=${encodeURIComponent('Bellevue, Washington')}${addGuests}`;
-  gcalLink.href=gcal; gcalLink.click();
-});
-</script>
+<script src="js/home.js"></script>
 </body>
+<footer style="text-align:center; margin-top:40px; padding:15px; font-size:0.8rem; color:#aaa;">
+  © 2023 Aigram Technologies Pvt. Ltd. All rights reserved.
+</footer>
 </html>
